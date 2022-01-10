@@ -253,6 +253,7 @@ public class UICadastroNacionais extends javax.swing.JFrame {
 
         String[] values = {codigo, modelo, montadora, anoFabricacao, anoModelo,
             placa, categoria, fipe, diaria, estadual};
+        
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
@@ -317,12 +318,6 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 UICadastroNacionais dialog = new UICadastroNacionais();
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
                 dialog.setVisible(true);
             }
         });
