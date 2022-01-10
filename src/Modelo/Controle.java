@@ -86,64 +86,73 @@ public class Controle {
         }
     }
     
-    public void imprimirTodosVeiculos(){
+    public String imprimirTodosVeiculos(){
         System.out.println("Todos veículos cadastrados:");
         int contador = 1;
+        String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
-            System.out.println("\n#" + contador);
-            veiculo.imprimirVeiculos();
+            relatorio += "\n\n#" + contador;
+            relatorio += veiculo.imprimirVeiculos();
             contador++;
         }
         
-        
+        return relatorio;
     }
     
-    public void imprimirVeiculosNacionais(){
+    public String imprimirVeiculosNacionais(){
         System.out.println("\nVeículos nacionais:");
         int contador = 1;
+        String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
             if(veiculo.getClass() == VeiculoNacional.class){
-                System.out.println("\n#" + contador);
-                veiculo.imprimirVeiculos();
+                relatorio += "\n\n#" + contador;
+                relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
         }
+        return relatorio;
     }
     
-    public void imprimirVeiculosImportados(){
+    public String imprimirVeiculosImportados(){
         System.out.println("\nVeículos Importados:");
         int contador = 1;
+        String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
             if(veiculo.getClass() == VeiculoImportado.class){
-                System.out.println("\n#" + contador);
-                veiculo.imprimirVeiculos();
+                relatorio += "\n\n#" + contador;
+                relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
         }
+        return relatorio;
     }
     
-    public void imprimirVeiculosDisponiveis(){
+    public String imprimirVeiculosDisponiveis(){
         System.out.println("\nVeículos disponíveis para locação: ");
         int contador = 1;
+        String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
             if(veiculo.isAlugado() == false){
-                System.out.println("\n#" + contador);
-                veiculo.imprimirVeiculos();
+                relatorio += "\n\n#" + contador;
+                relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
         }
+        return relatorio;
     }
     
-    public void imprimirVeiculosIndisponiveis(){
+    public String imprimirVeiculosIndisponiveis(){
         System.out.println("\nVeículos disponíveis para locação: ");
         int contador = 1;
+        String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
             if(veiculo.isAlugado() == true){
-                System.out.println("\n#" + contador);
-                veiculo.imprimirVeiculos();
+                relatorio += "\n\n#" + contador;
+                relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
         }
+        return relatorio;
     }
     
     /**
@@ -159,56 +168,66 @@ public class Controle {
     }
     **/
     
-    public void imprimirTodosFuncionarios(){
+    public String imprimirTodosFuncionarios(){
         System.out.println("\nFuncionários cadastrados:");
         int contador = 1;
+        String relatorio = "";
         for(Funcionario funcionario : this.funcionarios){
-            System.out.println("\n#" + contador);
-            funcionario.imprimirFuncionarios();
+            relatorio += "\n\n#" + contador;
+            relatorio += funcionario.imprimirFuncionarios();
             contador++;
         }
+        return relatorio;
     }
     
     
-    public void imprimirTodosClientes(){
+    public String imprimirTodosClientes(){
         System.out.println("\nClientes cadastrados:");
         int contador = 1;
+        String relatorio = "";
         for(Cliente cliente : this.clientes){
-            System.out.println("\n#" + contador);
-            cliente.imprimirCliente();
+            relatorio += "\n\n#" + contador;
+            relatorio += cliente.imprimirCliente();
             contador++;
         }
+        return relatorio;
     }
     
-    public void imprimirLocacoesPorCliente(int codigoCliente){
+    public String imprimirLocacoesPorCliente(int codigoCliente){
         System.out.println("\nLocação por cliente: ");
         int contador = 1;
+        String relatorio = "";
         for(Locacao locacao : this.locacoes){
             if(locacao.getCodigoCliente() == codigoCliente){
-                System.out.println("\n#" + contador);
-                locacao.imprimirLocacao();
+                relatorio += "\n\n#" + contador;
+                relatorio += locacao.imprimirLocacao();
                 contador++;
             }
         }
+        return relatorio;
     }
     
-    public void imprimirTodasLocacoes(){
+    public String imprimirTodasLocacoes(){
         System.out.println("\nLocação por cliente: ");
         int contador = 1;
+        String relatorio = "";
         for(Locacao locacao : this.locacoes){
-            System.out.println("\n#" + contador);
-            locacao.imprimirLocacao();
+            relatorio += "\n\n#" + contador;
+            relatorio += locacao.imprimirLocacao();
             contador++;
         }
+        return relatorio;
     }
     
-    public void imprimirTodosSeguros(){
+    public String imprimirTodosSeguros(){
         System.out.println("\nSeguros: ");
         int contador = 1;
+        String relatorio = "";
         for(Seguro seguro : this.seguros){
-            System.out.println("\n#" + contador);
-            seguro.imprimirSeguro();
+            relatorio += "\n\n#" + contador;
+            relatorio += seguro.imprimirSeguro();
             contador++;
         }
+        return relatorio;
     }
 }

@@ -116,14 +116,15 @@ public class Veiculo {
         this.alugado = alugado;
     }
     
-    public void imprimirVeiculos(){
-        System.out.println("Código do veículo: " + codigoVeiculo +
+    public String imprimirVeiculos(){
+        String relatorio =  "\nCódigo do veículo: " + codigoVeiculo +
                             "\nNome do modelo: " + nomeModelo + 
                             "\nMontadora: " + montadora + 
                             "\nAno de fabricação: " + anoFabricacao +
                             "\nAno do modelo: " + anoModelo +
                             "\nPlaca: " + placa + 
-                            "\nCategoria: " + categoria);
+                            "\nCategoria: " + categoria;
+        return relatorio;
     }
     
 }

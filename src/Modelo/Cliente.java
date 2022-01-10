@@ -60,8 +60,8 @@ public class Cliente extends Usuario{
         this.clienteOuro = clienteOuro;
     }
     
-    public void imprimirCliente(){
-        System.out.println("\nCódigo de usuário: " + this.codigoUsuario +
+    public String imprimirCliente(){
+        String relatorio = "\nCódigo de usuário: " + this.codigoUsuario +
                            "\nNome: " + this.nome +
                            "\nCPF: " + this.cpf +
                            "\nRG: " + this.rg + 
@@ -71,6 +71,7 @@ public class Cliente extends Usuario{
                            "\nEmail: " + this.email +
                            "\nCategoria CNH: " + this.categoriaCNH +
                            "\nNúmero CNH: " + this.numeroCNH + 
-                           "\nValidade CNH: " + this.validadeCNH);
+                           "\nValidade CNH: " + this.validadeCNH;
+        return relatorio;
     }
 }

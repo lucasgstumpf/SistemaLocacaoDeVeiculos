@@ -22,9 +22,9 @@ public class teste {
         Controle c1 = new Controle();
         c1.addVeiculos(v1);
         c1.addVeiculos(v2);
-        c1.imprimirTodosVeiculos();
-        c1.imprimirVeiculosNacionais();
-        c1.imprimirVeiculosImportados();
-        c1.imprimirVeiculosDisponiveis();
+        System.out.println(c1.imprimirTodosVeiculos());
+        System.out.println(c1.imprimirVeiculosNacionais());
+        System.out.println(c1.imprimirVeiculosImportados());
+        System.out.println(c1.imprimirVeiculosDisponiveis());
     }
 }

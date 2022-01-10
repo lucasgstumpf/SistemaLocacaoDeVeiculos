@@ -100,12 +100,13 @@ public class Locacao {
         this.finalizada = finalizada;
     }
     
-    public void imprimirLocacao(){
-        System.out.println("\nCódigo de locação: " + this.codigoLocacao +
+    public String imprimirLocacao(){
+        String relatorio = "\nCódigo de locação: " + this.codigoLocacao +
                            "\nCódigo de cliente: " + this.codigoCliente +
                            "\nCódigo de funcionário: " + this.codigoFuncionario +
                            "\nData de locação: " + this.dataLocacao +
                            "\nData de devolução: " + this.dataDevolucao +
-                           "\nValor total: " + this.valorTotal);
+                           "\nValor total: " + this.valorTotal;
+        return relatorio; 
     }
 }

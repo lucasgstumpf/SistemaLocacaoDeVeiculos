@@ -49,8 +49,8 @@ public class Funcionario extends Usuario{
         this.dataAdmissao = dataAdmissao;
     }
     
-    public void imprimirFuncionarios(){
-        System.out.println("\nCódigo de usuário: " + this.codigoUsuario +
+    public String imprimirFuncionarios(){
+        String relatorio = "\nCódigo de usuário: " + this.codigoUsuario +
                            "\nNome: " + this.nome +
                            "\nCPF: " + this.cpf +
                            "\nRG: " + this.rg + 
@@ -60,6 +60,7 @@ public class Funcionario extends Usuario{
                            "\nEmail: " + this.email +
                            "\nSálario: " + this.salario +
                            "\nPIS: " + this.pis +
-                           "\nData de admissão: " + this.dataAdmissao);
+                           "\nData de admissão: " + this.dataAdmissao;
+        return relatorio;
     }
 }

@@ -15,7 +15,7 @@ public class Principal {
         UIHome home = new UIHome();
         home.setVisible(true);
         home.setTitle("Sistema de locação de veículos");
-        //home.toFront();
+        home.toFront();
         home.setResizable(false);
         home.getContentPane().setBackground(Color.white);
         home.setLocationRelativeTo(null);

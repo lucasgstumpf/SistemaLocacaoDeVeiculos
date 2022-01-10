@@ -66,11 +66,12 @@ public class Seguro {
         this.valor = valor;
     }
     
-    public void imprimirSeguro(){
-        System.out.println("\nCódigo do seguro: " + this.codigoSeguro +
+    public String imprimirSeguro(){
+        String relatorio = "\nCódigo do seguro: " + this.codigoSeguro +
                            "\nNome: " + this.nome +
                            "\nTipo: " + this.tipo +
                            "\nDescrição: " + this.descricao +
-                           "\nValor: " + this.valor);
+                           "\nValor: " + this.valor;
+        return relatorio;
     }
 }
