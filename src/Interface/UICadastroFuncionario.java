@@ -259,6 +259,14 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
         if(Utils.hasNull(values)){
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
+        } else if (!Utils.isFloat(salario)) {
+            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textSalario.setText("");
+        } else if (!Utils.isInt(codigo)){
+            JOptionPane.showMessageDialog(this, "Código do seguro precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textCodigo.setText("");
         } else {
             controller.addFuncionarios(Integer.parseInt(codigo), nome, cpf, rg, 
                     nascimento, endereco, cep, email, Float.parseFloat(salario),

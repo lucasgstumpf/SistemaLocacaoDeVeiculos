@@ -25,14 +25,12 @@ public class Locacao {
 
     
     public Locacao(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    String dataLocacao, String dataDevolucao, float valorTotal,
-                    boolean finalizada){
+                    String dataLocacao, String dataDevolucao, boolean finalizada){
         this.codigoLocacao = codigoLocacao;
         this.codigoCliente = codigoCliente;
         this.codigoFuncionario = codigoFuncionario;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
-        this.valorTotal = valorTotal;
         this.finalizada = finalizada;
     }
 

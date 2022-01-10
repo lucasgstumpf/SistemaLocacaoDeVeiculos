@@ -315,6 +315,19 @@ public class UICadastroImportados extends javax.swing.JFrame {
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
+        } else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)){
+            JOptionPane.showMessageDialog(this, "Código do veículo precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textCodigo.setText("");
+            AnoFabricacao.setText("");
+            AnoModelo.setText("");
+        } else if (!Utils.isFloat(fipe) && !Utils.isFloat(diaria) && !Utils.isFloat(estadual) && !Utils.isFloat(federal)) {
+            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textFipe.setText("");
+            textDiaria.setText("");
+            textEstadual.setText("");
+            textFederal.setText("");
         } else {
             controller.addVeiculosImportados(Integer.parseInt(codigo), modelo, 
                     montadora, Integer.parseInt(anoFabricacao), 

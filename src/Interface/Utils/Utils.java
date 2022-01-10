@@ -27,5 +27,12 @@ public class Utils {
         }
         return true;
     }
-   
+   public static boolean isInt(String value){
+       try {
+           int teste = Integer.parseInt(value);
+       } catch(NumberFormatException nfe) {
+           return false;
+       }
+       return true;
+   }
 }

@@ -66,11 +66,10 @@ public class Controlador {
     }
     
     public void addLocacoes(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    String dataLocacao, String dataDevolucao, float valorTotal,
-                    boolean finalizada){
+                    String dataLocacao, String dataDevolucao, boolean finalizada){
         
         Locacao l = new Locacao(codigoLocacao, codigoCliente, codigoFuncionario,
-            dataLocacao, dataDevolucao, valorTotal, finalizada);
+            dataLocacao, dataDevolucao, finalizada);
         
         controle.addLocacao(l);
     }

@@ -144,6 +144,14 @@ public class UICadastroSeguro extends javax.swing.JFrame {
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
+        } else if (!Utils.isFloat(valor)) {
+            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textValor.setText("");
+        } else if (!Utils.isInt(codigoSeguro)){
+            JOptionPane.showMessageDialog(this, "Código do seguro precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textCodigo.setText("");
         } else {
             controller.addSeguros(Integer.parseInt(codigoSeguro), nome, tipo, 
                     descricao, Float.parseFloat(valor));

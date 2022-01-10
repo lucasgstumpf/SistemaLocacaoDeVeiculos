@@ -281,6 +281,10 @@ public class UICadastroCliente extends javax.swing.JFrame {
         if(Utils.hasNull(values)){
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
+        } else if (!Utils.isInt(codigo)){
+            JOptionPane.showMessageDialog(this, "Código do clietne precisa ser um valor numérico!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            textCodigo.setText("");
         } else {
             controller.addClientes(Integer.parseInt(codigo), nome, cpf, rg, 
                     nascimento, endereco, cep, email, categoria, numero, validade,
