@@ -122,6 +122,7 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Taxa estadual:");
 
+        checkBoxAlugado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         checkBoxAlugado.setText("Alugado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
