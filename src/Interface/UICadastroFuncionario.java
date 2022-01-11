@@ -260,17 +260,28 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
         } else if (!Utils.isFloat(salario)) {
-            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+            JOptionPane.showMessageDialog(this, "Sálario precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textSalario.setText("");
         } else if (!Utils.isInt(codigo)){
-            JOptionPane.showMessageDialog(this, "Código do seguro precisa ser um valor numérico!",
+            JOptionPane.showMessageDialog(this, "Código do funcionário precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
         } else {
             controller.addFuncionarios(Integer.parseInt(codigo), nome, cpf, rg, 
                     nascimento, endereco, cep, email, Float.parseFloat(salario),
                     pis, admissao);
+            textCodigo.setText("");
+            textNome.setText("");
+            textCpf.setText("");
+            textRg.setText("");
+            textNascimento.setText("");
+            textEndereco.setText("");
+            textCep.setText("");
+            textEmail.setText("");
+            textSalario.setText("");
+            textPis.setText("");
+            textDataAdmissao.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -272,7 +272,7 @@ public class UICadastroCliente extends javax.swing.JFrame {
         String email = textEmail.getText();
         String categoria = (String) boxCategoria.getSelectedItem();
         String numero = textNumero.getText();
-        String validade = textNumero.getText();
+        String validade = textValidade.getText();
         boolean ouro = checkboxOuro.isSelected();
         
         String[] values = {codigo, nome, cpf, rg, nascimento, endereco, cep, 
@@ -288,6 +288,16 @@ public class UICadastroCliente extends javax.swing.JFrame {
             controller.addClientes(Integer.parseInt(codigo), nome, cpf, rg, 
                     nascimento, endereco, cep, email, categoria, numero, validade,
                     ouro);
+            textCodigo.setText("");
+            textNome.setText("");
+            textCpf.setText("");
+            textRg.setText("");
+            textNascimento.setText("");
+            textEndereco.setText("");
+            textCep.setText("");
+            textEmail.setText("");
+            textNumero.setText("");
+            textValidade.setText("");
         }
         System.out.println(ouro);
               

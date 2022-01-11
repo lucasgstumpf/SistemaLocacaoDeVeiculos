@@ -316,13 +316,13 @@ public class UICadastroImportados extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
         } else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)){
-            JOptionPane.showMessageDialog(this, "Código do veículo precisa ser um valor numérico!",
+            JOptionPane.showMessageDialog(this, "Código do veículo, ano de fabricaçao e de modelo precisam ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
             AnoFabricacao.setText("");
             AnoModelo.setText("");
         } else if (!Utils.isFloat(fipe) && !Utils.isFloat(diaria) && !Utils.isFloat(estadual) && !Utils.isFloat(federal)) {
-            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+            JOptionPane.showMessageDialog(this, "Valor fipe, diária, taxa estadual e federal precisam ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textFipe.setText("");
             textDiaria.setText("");
@@ -334,9 +334,16 @@ public class UICadastroImportados extends javax.swing.JFrame {
                     Integer.parseInt(anoModelo), placa, categoria, 
                     Float.parseFloat(fipe), Float.parseFloat(diaria), 
                     alugado, Float.parseFloat(estadual), Float.parseFloat(federal));
-            System.out.println("Codigo: " + codigo + "\nModelo: " + modelo + "\nMontadora: " + montadora + "\nFabricacao: " + anoFabricacao
-                    + "\nAno do modelo: " + anoModelo
-                    + "\n Placa: " + placa + "\nCategoria: " + categoria + "\nFipe: " + fipe + "\nDiaria: " + diaria);
+            textCodigo.setText("");
+            textModelo.setText("");
+            textMontadora.setText("");
+            AnoFabricacao.setText("");
+            AnoModelo.setText("");
+            textPlaca.setText("");
+            textFipe.setText("");
+            textDiaria.setText("");
+            textEstadual.setText("");
+            textFederal.setText("");
         }
     }//GEN-LAST:event_CadastroButtonActionPerformed
 
