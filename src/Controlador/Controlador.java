@@ -81,4 +81,54 @@ public class Controlador {
         
         controle.addSeguros(s);
     }
+    
+    public String imprimirTodosVeiculos() {
+        return controle.imprimirTodosVeiculos();
+    }
+    
+    public String imprimirVeiculosNacionais() {
+        return controle.imprimirVeiculosNacionais();
+    }
+    
+    public String imprimirVeiculosImportados() {
+        return controle.imprimirVeiculosImportados();
+    }
+    
+    public String imprimirVeiculosDisponiveis() {
+        return controle.imprimirVeiculosDisponiveis();
+    }
+    
+    public String imprimirVeiculosIndisponiveis() {
+        return controle.imprimirVeiculosIndisponiveis();
+    }
+
+    public String imprimirTodosFuncionarios() {
+        return controle.imprimirTodosFuncionarios();
+    }
+
+    public String imprimirTodosClientes() {
+        return controle.imprimirTodosClientes();
+    }
+
+    public String imprimirLocacoesPorCliente(int codigoCliente) {
+        return controle.imprimirLocacoesPorCliente(codigoCliente);
+    }
+    
+    public String imprimirTodasLocacoes() {
+        return controle.imprimirTodasLocacoes();
+    }
+    
+    public String imprimirTodosSeguros(){
+        return controle.imprimirTodosSeguros();
+    }
+    
+    public String imprimirLocacoesFinalizadas(){
+        return controle.imprimirLocacoesFinalizadas();
+    }
+    
+    public String imprimirLocacoesNaoFinalizadas(){
+        return controle.imprimirLocacoesNaoFinalizadas();
+    }
+    
+    
 }
