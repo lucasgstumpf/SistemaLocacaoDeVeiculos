@@ -11,13 +11,13 @@ import java.util.ArrayList;
  *
  * @author Felipe de Freitas
  */
-public class Controle {
+public final class Controle {
 
-    private final ArrayList<Locacao> locacoes = new ArrayList();
-    private final ArrayList<Veiculo> veiculos = new ArrayList();
-    private final ArrayList<Cliente> clientes = new ArrayList();
-    private final ArrayList<Funcionario> funcionarios = new ArrayList();
-    private final ArrayList<Seguro> seguros = new ArrayList();
+    private final static ArrayList<Locacao> locacoes = new ArrayList();
+    private final static ArrayList<Veiculo> veiculos = new ArrayList();
+    private final static ArrayList<Cliente> clientes = new ArrayList();
+    private final static ArrayList<Funcionario> funcionarios = new ArrayList();
+    private final static ArrayList<Seguro> seguros = new ArrayList();
 
     public Controle() {
     }

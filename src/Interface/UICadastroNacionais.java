@@ -286,6 +286,7 @@ public class UICadastroNacionais extends javax.swing.JFrame {
             textDiaria.setText("");
             textEstadual.setText("");
             checkBoxAlugado.setSelected(false);
+            System.out.println("CADASTROU");
         }
     }//GEN-LAST:event_CadastroButtonActionPerformed
 
