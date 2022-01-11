@@ -4,7 +4,7 @@ package Interface;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import Modelo.Controle;
+import Controlador.Controlador;
 /**
  *
  * @author karol
@@ -48,8 +48,14 @@ public class UIHome extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -139,29 +145,99 @@ public class UIHome extends javax.swing.JFrame {
         jMenu5.add(jMenuItem2);
 
         jMenuItem3.setText("Nacionais");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem3);
 
-        jMenuItem6.setText("Internacionais");
+        jMenuItem6.setText("Importados");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem6);
 
         jMenuItem4.setText("Disponiveis");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem4);
 
         jMenuItem5.setText("Indisponiveis");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem5);
 
         jMenu4.add(jMenu5);
 
         jMenuItem8.setText("Funcionarios");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem8);
 
-        jMenuItem9.setText("Locações");
-        jMenu4.add(jMenuItem9);
-
         jMenuItem10.setText("Seguros");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem10);
 
+        jMenu9.setText("Locações");
+
+        jMenuItem15.setText("Todas as locações");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem15);
+
+        jMenuItem9.setText("Locações finalizadas");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem9);
+
+        jMenuItem16.setText("Locações não finalizadas");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem16);
+
+        jMenu4.add(jMenu9);
+
+        jMenu10.setText("Cliente");
+
+        jMenuItem17.setText("Todos clientes");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jMenuItem17);
+
+        jMenu4.add(jMenu10);
+
         jMenuBar2.add(jMenu4);
+
+        jMenu8.setText("Busca");
+        jMenuBar2.add(jMenu8);
 
         setJMenuBar(jMenuBar2);
 
@@ -198,8 +274,8 @@ public class UIHome extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         UIRelatorio relatorio = new UIRelatorio(this, false);
-        Controle c1 = new Controle();
-        relatorio.exibir("Relatório geral dos veiculos", "Relatório geral dos veiculos ", "Pao de forma" ) ;
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório todos os veículos", "Relatório todos os veículos", control.imprimirTodosVeiculos());
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -251,6 +327,76 @@ public class UIHome extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório veículos nacionais", "Relatório veículos nacionais", control.imprimirVeiculosNacionais());
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório veículos importados", "Relatório veículos importados", control.imprimirVeiculosImportados());
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório veículos disponíveis", "Relatório veículos disponíveis", control.imprimirVeiculosDisponiveis());
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório veículos indisponíveis", "Relatório veículos indisponíveis", control.imprimirVeiculosIndisponiveis());
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório funcionários", "Relatório funcionários", control.imprimirTodosFuncionarios());
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório seguros", "Relatório seguros", control.imprimirTodosSeguros());
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório locações", "Relatório locações", control.imprimirTodasLocacoes());
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório locações finalizadas", "Relatório finalizadas", control.imprimirLocacoesFinalizadas());
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório locações não finalizadas ", "Relatório não finalizadas  ", control.imprimirLocacoesNaoFinalizadas());
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório locações não finalizadas ", "Relatório não finalizadas  ", control.imprimirTodosClientes());
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -289,12 +435,15 @@ public class UIHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -303,6 +452,9 @@ public class UIHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
