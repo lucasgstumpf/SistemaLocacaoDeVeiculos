@@ -17,13 +17,11 @@ public class Seguro {
     private float valor;
     
 
-    public Seguro(int codigoSeguro, String nome, String tipo, String descricao,
-                    float valor){
+    public Seguro(int codigoSeguro, String nome, String tipo, String descricao){
         this.codigoSeguro = codigoSeguro;
         this.nome = nome;
         this.tipo = tipo;
         this.descricao = descricao;
-        this.valor = valor;
     }
 
     public int getCodigoSeguro() {

@@ -42,8 +42,6 @@ public class UICadastroSeguro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textDescricao = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
-        textValor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,9 +61,6 @@ public class UICadastroSeguro extends javax.swing.JFrame {
         textDescricao.setColumns(20);
         textDescricao.setRows(5);
         jScrollPane1.setViewportView(textDescricao);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Valor:");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Cadastrar");
@@ -93,23 +88,16 @@ public class UICadastroSeguro extends javax.swing.JFrame {
                             .addComponent(textTipo)
                             .addComponent(jLabel5)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(textValor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(195, 195, 195)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -138,23 +126,22 @@ public class UICadastroSeguro extends javax.swing.JFrame {
         String nome = textNome.getText();
         String tipo = textTipo.getText();
         String descricao = textDescricao.getText();
-        String valor = textValor.getText();
-        String[] values = {codigoSeguro, nome, tipo, descricao, valor};
+        String[] values = {codigoSeguro, nome, tipo, descricao};
         
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
-        } else if (!Utils.isFloat(valor)) {
-            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
-                    "Atenção", JOptionPane.WARNING_MESSAGE);
-            textValor.setText("");
         } else if (!Utils.isInt(codigoSeguro)){
             JOptionPane.showMessageDialog(this, "Código do seguro precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
         } else {
-            controller.addSeguros(Integer.parseInt(codigoSeguro), nome, tipo, 
-                    descricao, Float.parseFloat(valor));
+            controller.addSeguros(Integer.parseInt(codigoSeguro), nome, tipo,descricao);
+            textCodigo.setText("");
+            textNome.setText("");
+            textTipo.setText("");
+            textDescricao.setText("");
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -199,12 +186,10 @@ public class UICadastroSeguro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField textCodigo;
     private javax.swing.JTextArea textDescricao;
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textTipo;
-    private javax.swing.JTextField textValor;
     // End of variables declaration//GEN-END:variables
 }

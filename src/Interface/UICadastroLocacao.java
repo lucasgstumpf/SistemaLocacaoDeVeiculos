@@ -190,7 +190,16 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             controller.addLocacoes(Integer.parseInt(codigoLocacao), 
                     Integer.parseInt(codigoCliente), Integer.parseInt(codigoFuncionario),
                     dataLocacao, dataDevolucao, finalizada);
+            textCodigoLocacao.setText("");
+            textCodigoFuncionario.setText("");
+            textCodigoCliente.setText("");
+            textDataDevolucao.setText("");
+            textDataLocacao.setText("");
+            textSegurosContratados.setText("");
+            checkBoxFinalizada.setSelected(false);
+ 
         }
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

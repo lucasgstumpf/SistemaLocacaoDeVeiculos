@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class UICadastroNacionais extends javax.swing.JFrame {
 
     Controlador controller;
+
     /**
      * Creates new form UICadastroNacionais
      */
@@ -253,37 +254,38 @@ public class UICadastroNacionais extends javax.swing.JFrame {
 
         String[] values = {codigo, modelo, montadora, anoFabricacao, anoModelo,
             placa, categoria, fipe, diaria, estadual};
-        
+
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
-        } else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)){
-            JOptionPane.showMessageDialog(this, "Código do veículo precisa ser um valor numérico!",
-                    "Atenção", JOptionPane.WARNING_MESSAGE);
-            textCodigo.setText("");
-            AnoFabricacao.setText("");
-            AnoModelo.setText("");
-        }  else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)){
-            JOptionPane.showMessageDialog(this, "Código do veículo precisa ser um valor numérico!",
+        } else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)) {
+            JOptionPane.showMessageDialog(this, "Código, ano de fabricação e ano de modelo precisam ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
             AnoFabricacao.setText("");
             AnoModelo.setText("");
         } else if (!Utils.isFloat(fipe) && !Utils.isFloat(diaria) && !Utils.isFloat(estadual)) {
-            JOptionPane.showMessageDialog(this, "Valor precisa ser um valor numérico!",
+            JOptionPane.showMessageDialog(this, "Valor Fipe, diária e taxa estadual precisam ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textFipe.setText("");
             textDiaria.setText("");
             textEstadual.setText("");
         } else {
-            controller.addVeiculosNacionais(Integer.parseInt(codigo), modelo, 
-                    montadora, Integer.parseInt(anoFabricacao), 
-                    Integer.parseInt(anoModelo), placa, categoria, 
-                    Float.parseFloat(fipe), Float.parseFloat(diaria), 
+            controller.addVeiculosNacionais(Integer.parseInt(codigo), modelo,
+                    montadora, Integer.parseInt(anoFabricacao),
+                    Integer.parseInt(anoModelo), placa, categoria,
+                    Float.parseFloat(fipe), Float.parseFloat(diaria),
                     alugado, Float.parseFloat(estadual));
-            System.out.println("Codigo: " + codigo + "\nModelo: " + modelo + "\nMontadora: " + montadora + "\nFabricacao: " + anoFabricacao
-                    + "\nAno do modelo: " + anoModelo
-                    + "\n Placa: " + placa + "\nCategoria: " + categoria + "\nFipe: " + fipe + "\nDiaria: " + diaria);
+            textCodigo.setText("");
+            textModelo.setText("");
+            textMontadora.setText("");
+            AnoFabricacao.setText("");
+            AnoModelo.setText("");
+            textPlaca.setText("");
+            textFipe.setText("");
+            textDiaria.setText("");
+            textEstadual.setText("");
+            checkBoxAlugado.setSelected(false);
         }
     }//GEN-LAST:event_CadastroButtonActionPerformed
 

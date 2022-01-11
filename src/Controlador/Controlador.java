@@ -75,9 +75,9 @@ public class Controlador {
     }
     
     public void addSeguros(int codigoSeguro, String nome, String tipo, 
-            String descricao, float valor){
+            String descricao){
         
-        Seguro s = new Seguro(codigoSeguro, nome, tipo, descricao, valor);
+        Seguro s = new Seguro(codigoSeguro, nome, tipo, descricao);
         
         controle.addSeguros(s);
     }
