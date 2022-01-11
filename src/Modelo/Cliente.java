@@ -14,12 +14,12 @@ import java.util.Calendar;
 public class Cliente extends Usuario{
     protected String categoriaCNH;
     protected String numeroCNH;
-    protected String validadeCNH;
+    protected Calendar validadeCNH;
     protected boolean clienteOuro;
 
     public Cliente(int codigoUsuario, String nome, String cpf, String rg,
-            String dataNascimento, String endereco, String cep, String email,
-            String categoriaCNH, String numeroCNH, String validadeCNH,
+            Calendar dataNascimento, String endereco, String cep, String email,
+            String categoriaCNH, String numeroCNH, Calendar validadeCNH,
             boolean clienteOuro){
         super(codigoUsuario, nome, cpf, rg, dataNascimento, endereco, cep, email);
         this.categoriaCNH = categoriaCNH;
@@ -44,11 +44,11 @@ public class Cliente extends Usuario{
         this.numeroCNH = numeroCNH;
     }
 
-    public String getValidadeCNH() {
+    public Calendar getValidadeCNH() {
         return validadeCNH;
     }
 
-    public void setValidadeCNH(String validadeCNH) {
+    public void setValidadeCNH(Calendar validadeCNH) {
         this.validadeCNH = validadeCNH;
     }
 

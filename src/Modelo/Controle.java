@@ -6,6 +6,8 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 
 /**
  *
@@ -156,13 +158,6 @@ public final class Controle {
         return relatorio;
     }
 
-    /**
-     * public void imprimirVeiculosPorCliente(int codigoCliente){
-     * System.out.println(""); for(Locacao locacao : this.locacoes){
-     * if(locacao.getCodigoCliente() == codigoCliente){ for(Veiculo veiculo :
-     * this.veiculos){ if(veiculo.getCodigoVeiculo() == locacao.get) } } } }
-     *
-     */
     public String imprimirTodosFuncionarios() {
         System.out.println("\nFuncionários cadastrados:");
         int contador = 1;
@@ -246,6 +241,57 @@ public final class Controle {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
                 contador++;
+            }
+        }
+        return relatorio;
+    }
+
+    public String imprimirLocacoesAtradadas() {
+        String relatorio = "";
+        int contador = 1;
+        Calendar hoje = Calendar.getInstance();
+        for (Locacao locacao : this.locacoes) {
+            if (locacao.getDataDevolucao().before(hoje)) {
+                relatorio += "\n\n#" + contador;
+                relatorio += locacao.imprimirLocacao();
+                contador++;
+            }
+        }
+        return relatorio;
+    }
+
+    public String imprimirLocacoesMes(int mes) {
+        String relatorio = "";
+        int contador = 1;
+        for (Locacao locacao : this.locacoes) {
+            if (locacao.getDataDevolucao().get(Calendar.MONTH + 1) == mes) {
+                relatorio += "\n\n#" + contador;
+                relatorio += locacao.imprimirLocacao();
+                contador++;
+            }
+        }
+        return relatorio;
+    }
+
+    public String imprimirFuncionariosMes() {
+        String relatorio = "\nFuncionário dos meses:";
+        for (int i = 1; i <= 12; i++) {
+            int maior = 0;
+            int codigo = 0;
+            ArrayList<Integer> listaCodigoFuncionario = new ArrayList();
+            for (Locacao locacao : this.locacoes) {
+                listaCodigoFuncionario.add(locacao.getCodigoFuncionario());
+            }
+            for (int j : listaCodigoFuncionario) {
+                codigo = Collections.frequency(listaCodigoFuncionario, j);
+                if (codigo > maior) {
+                    codigo = maior;
+                }
+            }
+            for (Funcionario funcionario : this.funcionarios) {
+                if (funcionario.getCodigoUsuario() == codigo) {
+                    relatorio += "\n#" + i + ": " + funcionario.imprimirFuncionarios();
+                }
             }
         }
         return relatorio;

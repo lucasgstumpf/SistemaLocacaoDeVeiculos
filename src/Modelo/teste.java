@@ -26,5 +26,6 @@ public class teste {
         System.out.println(c1.imprimirVeiculosNacionais());
         System.out.println(c1.imprimirVeiculosImportados());
         System.out.println(c1.imprimirVeiculosDisponiveis());
+        
     }
 }

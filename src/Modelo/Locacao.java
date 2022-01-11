@@ -16,8 +16,8 @@ public class Locacao {
     private int codigoLocacao;
     private int codigoCliente;
     private int codigoFuncionario;
-    private String dataLocacao;
-    private String dataDevolucao;
+    private Calendar dataLocacao;
+    private Calendar dataDevolucao;
     private float valorTotal;
     private ArrayList<Seguro> segurosContratados;
     private boolean finalizada;
@@ -25,7 +25,7 @@ public class Locacao {
 
     
     public Locacao(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    String dataLocacao, String dataDevolucao, boolean finalizada){
+                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada){
         this.codigoLocacao = codigoLocacao;
         this.codigoCliente = codigoCliente;
         this.codigoFuncionario = codigoFuncionario;
@@ -58,19 +58,19 @@ public class Locacao {
         this.codigoFuncionario = codigoFuncionario;
     }
 
-    public String getDataLocacao() {
+    public Calendar getDataLocacao() {
         return dataLocacao;
     }
 
-    public void setDataLocacao(String dataLocacao) {
+    public void setDataLocacao(Calendar dataLocacao) {
         this.dataLocacao = dataLocacao;
     }
 
-    public String getDataDevolucao() {
+    public Calendar getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(String dataDevolucao) {
+    public void setDataDevolucao(Calendar dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 

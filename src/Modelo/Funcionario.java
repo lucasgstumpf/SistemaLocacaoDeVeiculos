@@ -14,11 +14,11 @@ import java.util.Calendar;
 public class Funcionario extends Usuario{
     protected float salario;
     protected String pis;
-    protected String dataAdmissao;
+    protected Calendar dataAdmissao;
 
     public Funcionario(int codigoUsuario, String nome, String cpf, String rg,
-            String dataNascimento, String endereco, String cep, String email,
-            float salario, String pis, String dataAdmissao){
+            Calendar dataNascimento, String endereco, String cep, String email,
+            float salario, String pis, Calendar dataAdmissao){
         super(codigoUsuario, nome, cpf, rg, dataNascimento, endereco, cep, email);
         this.salario = salario;
         this.pis = pis;
@@ -41,11 +41,11 @@ public class Funcionario extends Usuario{
         this.pis = pis;
     }
 
-    public String getDataAdmissao() {
+    public Calendar getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(String dataAdmissao) {
+    public void setDataAdmissao(Calendar dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
     

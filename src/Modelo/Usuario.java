@@ -16,13 +16,13 @@ public class Usuario {
     protected String nome;
     protected String cpf;
     protected String rg;
-    protected String dataNascimento;
+    protected Calendar dataNascimento;
     protected String endereco;
     protected String cep;
     protected String email;
 
     public Usuario(int codigoUsuario, String nome, String cpf, String rg,
-            String dataNascimento, String endereco, String cep, String email){
+            Calendar dataNascimento, String endereco, String cep, String email){
         this.codigoUsuario = codigoUsuario;
         this.nome = nome;
         this.cpf = cpf;
@@ -65,11 +65,11 @@ public class Usuario {
         this.rg = rg;
     }
 
-    public String getDataNascimento() {
+    public Calendar getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

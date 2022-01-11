@@ -12,6 +12,7 @@ import Modelo.Locacao;
 import Modelo.Seguro;
 import Modelo.VeiculoImportado;
 import Modelo.VeiculoNacional;
+import java.util.Calendar;
 
 /**
  *
@@ -45,8 +46,8 @@ public class Controlador {
     }
     
     public void addClientes(int codigoUsuario, String nome, String cpf, String rg,
-            String dataNascimento, String endereco, String cep, String email,
-            String categoriaCNH, String numeroCNH, String validadeCNH,
+            Calendar dataNascimento, String endereco, String cep, String email,
+            String categoriaCNH, String numeroCNH, Calendar validadeCNH,
             boolean clienteOuro){
         
         Cliente c = new Cliente(codigoUsuario, nome, cpf, rg, dataNascimento, 
@@ -56,8 +57,8 @@ public class Controlador {
     }
     
     public void addFuncionarios(int codigoUsuario, String nome, String cpf, String rg,
-            String dataNascimento, String endereco, String cep, String email,
-            float salario, String pis, String dataAdmissao){
+            Calendar dataNascimento, String endereco, String cep, String email,
+            float salario, String pis, Calendar dataAdmissao){
         
         Funcionario f = new Funcionario(codigoUsuario, nome, cpf, rg, dataNascimento, 
             endereco, cep, email, salario, pis, dataAdmissao);
@@ -66,7 +67,7 @@ public class Controlador {
     }
     
     public void addLocacoes(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    String dataLocacao, String dataDevolucao, boolean finalizada){
+                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada){
         
         Locacao l = new Locacao(codigoLocacao, codigoCliente, codigoFuncionario,
             dataLocacao, dataDevolucao, finalizada);
@@ -130,5 +131,15 @@ public class Controlador {
         return controle.imprimirLocacoesNaoFinalizadas();
     }
     
+    public String imprimirLocacoesAtrasadas(){
+        return controle.imprimirLocacoesAtradadas();
+    }
     
+    public String imprimirLocacoesMes(int mes){
+        return controle.imprimirLocacoesMes(mes);
+    }
+    
+    public String imprimirFuncionariosMes(){
+        return controle.imprimirFuncionariosMes();
+    }
 }
