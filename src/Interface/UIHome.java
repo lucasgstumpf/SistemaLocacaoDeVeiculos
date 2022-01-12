@@ -47,15 +47,20 @@ public class UIHome extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -178,14 +183,6 @@ public class UIHome extends javax.swing.JFrame {
 
         jMenu4.add(jMenu5);
 
-        jMenuItem8.setText("Funcionarios");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem8);
-
         jMenuItem10.setText("Seguros");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +217,14 @@ public class UIHome extends javax.swing.JFrame {
         });
         jMenu9.add(jMenuItem16);
 
+        jMenuItem21.setText("Locações atrasadas");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem21);
+
         jMenu4.add(jMenu9);
 
         jMenu10.setText("Cliente");
@@ -234,9 +239,46 @@ public class UIHome extends javax.swing.JFrame {
 
         jMenu4.add(jMenu10);
 
+        jMenu11.setText("Funcionarios");
+
+        jMenuItem18.setText("Todos os funcionarios");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem18);
+
+        jMenuItem8.setText("Funcionario do mês");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem8);
+
+        jMenu4.add(jMenu11);
+
         jMenuBar2.add(jMenu4);
 
         jMenu8.setText("Busca");
+
+        jMenuItem19.setText("Histórico do cliente");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem19);
+
+        jMenuItem20.setText("Locações no mês");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem20);
+
         jMenuBar2.add(jMenu8);
 
         setJMenuBar(jMenuBar2);
@@ -355,13 +397,6 @@ public class UIHome extends javax.swing.JFrame {
         relatorio.exibir("Relatório veículos indisponíveis", "Relatório veículos indisponíveis", control.imprimirVeiculosIndisponiveis());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-        UIRelatorio relatorio = new UIRelatorio(this, false);
-        Controlador control = new Controlador();
-        relatorio.exibir("Relatório funcionários", "Relatório funcionários", control.imprimirTodosFuncionarios());
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
         UIRelatorio relatorio = new UIRelatorio(this, false);
@@ -396,6 +431,45 @@ public class UIHome extends javax.swing.JFrame {
         Controlador control = new Controlador();
         relatorio.exibir("Relatório locações não finalizadas ", "Relatório não finalizadas  ", control.imprimirTodosClientes());
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório funcionários", "Relatório funcionários", control.imprimirTodosFuncionarios());
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório funcionários", "Relatório funcionários", control.imprimirFuncionariosMes());
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UIBuscaClienteHistorico().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UIBuscaLocacaoMes().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        // TODO add your handling code here:
+        UIRelatorio relatorio = new UIRelatorio(this, false);
+        Controlador control = new Controlador();
+        relatorio.exibir("Relatório locações atrasadas", "locações atrasadas", control.imprimirFuncionariosMes());
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,6 +510,7 @@ public class UIHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -455,7 +530,11 @@ public class UIHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

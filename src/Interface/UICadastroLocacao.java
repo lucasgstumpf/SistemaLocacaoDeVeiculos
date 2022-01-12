@@ -6,6 +6,10 @@ package Interface;
 
 import Controlador.Controlador;
 import Interface.Utils.Utils;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +19,7 @@ import javax.swing.JOptionPane;
 public class UICadastroLocacao extends javax.swing.JFrame {
 
     Controlador controller;
+
     /**
      * Creates new form UICadastroLocacao
      */
@@ -39,14 +44,13 @@ public class UICadastroLocacao extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         textCodigoFuncionario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        textDataDevolucao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        textDataLocacao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         textSegurosContratados = new javax.swing.JTextField();
         checkBoxFinalizada = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
-        formatData = new javax.swing.JFormattedTextField();
+        textDataDevolucao = new javax.swing.JFormattedTextField();
+        textDataLocacao = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,7 +88,14 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             }
         });
 
-        formatData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        textDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        textDataDevolucao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDataDevolucaoActionPerformed(evt);
+            }
+        });
+
+        textDataLocacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,31 +103,26 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(textCodigoLocacao)
-                    .addComponent(jLabel2)
-                    .addComponent(textCodigoCliente)
-                    .addComponent(jLabel3)
-                    .addComponent(textCodigoFuncionario)
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(textDataDevolucao)
-                    .addComponent(jLabel5)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textCodigoLocacao, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textCodigoCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textCodigoFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textDataLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textSegurosContratados, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(17, 17, 17)))
-                            .addComponent(checkBoxFinalizada)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(formatData, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(textSegurosContratados, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(17, 17, 17)))
+                    .addComponent(checkBoxFinalizada))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,15 +149,13 @@ public class UICadastroLocacao extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(formatData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(textDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textDataLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(textDataLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -164,32 +168,56 @@ public class UICadastroLocacao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String testeteste = formatData.getText();
-        System.out.println("CALENDARIO" + testeteste);
 
         String codigoLocacao = textCodigoLocacao.getText();
         String codigoCliente = textCodigoCliente.getText();
         String codigoFuncionario = textCodigoFuncionario.getText();
         String dataDevolucao = textDataDevolucao.getText();
+        Calendar dataDataDevolucao = Calendar.getInstance();
+        try {
+            String data = textDataDevolucao.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+            dataDataDevolucao.setTime(sdf.parse(data));
+            System.out.println("ANO: " + dataDataDevolucao.get(Calendar.YEAR));
+            System.out.println("MES: " + dataDataDevolucao.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + dataDataDevolucao.get(Calendar.DAY_OF_MONTH));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String dataLocacao = textDataLocacao.getText();
+        Calendar dataDataLocacao = Calendar.getInstance();
+        try {
+            String data = textDataLocacao.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+            System.out.println(dataDataLocacao);
+            dataDataLocacao.setTime(sdf.parse(data));
+            System.out.println(data);
+            System.out.println("ANO: " + dataDataLocacao.get(Calendar.YEAR));
+            System.out.println("MES: " + dataDataLocacao.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + dataDataLocacao.get(Calendar.DAY_OF_MONTH));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String segurosContratados = textSegurosContratados.getText();
         boolean finalizada = checkBoxFinalizada.isSelected();
-        
-        String[] values = {codigoLocacao, codigoCliente, codigoFuncionario, 
+
+        String[] values = {codigoLocacao, codigoCliente, codigoFuncionario,
             dataDevolucao, dataLocacao, segurosContratados};
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
-        } else if (!Utils.isInt(codigoLocacao) && !Utils.isInt(codigoCliente) && !Utils.isInt(codigoFuncionario)){
+        } else if (!Utils.isInt(codigoLocacao) && !Utils.isInt(codigoCliente) && !Utils.isInt(codigoFuncionario)) {
             JOptionPane.showMessageDialog(this, "Código da locação, cliente e funcionário precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigoLocacao.setText("");
             textCodigoFuncionario.setText("");
             textCodigoCliente.setText("");
         } else {
-            controller.addLocacoes(Integer.parseInt(codigoLocacao), 
-                    Integer.parseInt(codigoCliente), Integer.parseInt(codigoFuncionario),
-                    dataLocacao, dataDevolucao, finalizada);
+            controller.addLocacoes(Integer.parseInt(codigoLocacao), Integer.parseInt(codigoCliente), Integer.parseInt(codigoFuncionario), dataDataLocacao, dataDataDevolucao, finalizada);
             textCodigoLocacao.setText("");
             textCodigoFuncionario.setText("");
             textCodigoCliente.setText("");
@@ -197,10 +225,14 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             textDataLocacao.setText("");
             textSegurosContratados.setText("");
             checkBoxFinalizada.setSelected(false);
- 
+
         }
-    
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textDataDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDataDevolucaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDataDevolucaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +271,6 @@ public class UICadastroLocacao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox checkBoxFinalizada;
-    private javax.swing.JFormattedTextField formatData;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -250,8 +281,8 @@ public class UICadastroLocacao extends javax.swing.JFrame {
     private javax.swing.JTextField textCodigoCliente;
     private javax.swing.JTextField textCodigoFuncionario;
     private javax.swing.JTextField textCodigoLocacao;
-    private javax.swing.JTextField textDataDevolucao;
-    private javax.swing.JTextField textDataLocacao;
+    private javax.swing.JFormattedTextField textDataDevolucao;
+    private javax.swing.JFormattedTextField textDataLocacao;
     private javax.swing.JTextField textSegurosContratados;
     // End of variables declaration//GEN-END:variables
 }

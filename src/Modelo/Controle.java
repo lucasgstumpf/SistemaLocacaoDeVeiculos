@@ -273,6 +273,24 @@ public final class Controle {
         return relatorio;
     }
 
+    public String imprimirVeiculosAtradados() {
+        String relatorio = "";
+        int contador = 1;
+        Calendar hoje = Calendar.getInstance();
+        for (Locacao locacao : this.locacoes) {
+            if (locacao.getDataDevolucao().before(hoje)) {
+                for (Veiculo veiculo : this.veiculos){
+                    if (locacao.getCodigoVeiculo() == veiculo.getCodigoVeiculo()){
+                        relatorio += "\n\n#" + contador;
+                        relatorio += veiculo.imprimirVeiculos();
+                        contador++;
+                    }
+                }
+            }
+        }
+        return relatorio;
+    }
+    
     public String imprimirFuncionariosMes() {
         String relatorio = "\nFuncionário dos meses:";
         for (int i = 1; i <= 12; i++) {
@@ -291,6 +309,23 @@ public final class Controle {
             for (Funcionario funcionario : this.funcionarios) {
                 if (funcionario.getCodigoUsuario() == codigo) {
                     relatorio += "\n#" + i + ": " + funcionario.imprimirFuncionarios();
+                }
+            }
+        }
+        return relatorio;
+    }
+    
+    public String imprimirVeiculoCliente(int codigoCliente){
+        String relatorio = "";
+        int contador = 1;
+        for (Locacao locacao : this.locacoes){
+            if(locacao.getCodigoCliente() == codigoCliente){
+                for(Veiculo veiculo : this.veiculos){
+                    if(veiculo.getCodigoVeiculo() == locacao.getCodigoVeiculo()){
+                        relatorio += "\n\n#" + contador;
+                        relatorio += veiculo.imprimirVeiculos();
+                        contador++;
+                    }
                 }
             }
         }

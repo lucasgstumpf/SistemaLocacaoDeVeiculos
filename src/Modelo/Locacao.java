@@ -21,17 +21,25 @@ public class Locacao {
     private float valorTotal;
     private ArrayList<Seguro> segurosContratados;
     private boolean finalizada;
-    
-
+    private int codigoVeiculo;
     
     public Locacao(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada){
+                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada, int codigoVeiculo){
         this.codigoLocacao = codigoLocacao;
         this.codigoCliente = codigoCliente;
         this.codigoFuncionario = codigoFuncionario;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
         this.finalizada = finalizada;
+        this.codigoVeiculo = codigoVeiculo;
+    }
+        
+    public int getCodigoVeiculo() {
+        return codigoVeiculo;
+    }
+
+    public void setCodigoVeiculo(int codigoVeiculo) {
+        this.codigoVeiculo = codigoVeiculo;
     }
 
     public int getCodigoLocacao() {
@@ -102,8 +110,9 @@ public class Locacao {
         String relatorio = "\nCódigo de locação: " + this.codigoLocacao +
                            "\nCódigo de cliente: " + this.codigoCliente +
                            "\nCódigo de funcionário: " + this.codigoFuncionario +
-                           "\nData de locação: " + this.dataLocacao +
-                           "\nData de devolução: " + this.dataDevolucao +
+                           "\nCódigo do veicúlo: " + this.codigoVeiculo +
+                           "\nData de locação: " +  this.dataLocacao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataLocacao.get(Calendar.MONTH + 1) + "/" + this.dataLocacao.get(Calendar.YEAR) +
+                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataDevolucao.get(Calendar.MONTH + 1) + "/" + this.dataDevolucao.get(Calendar.YEAR) +
                            "\nValor total: " + this.valorTotal;
         return relatorio; 
     }

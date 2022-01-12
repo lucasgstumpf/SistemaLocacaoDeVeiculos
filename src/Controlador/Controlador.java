@@ -67,10 +67,10 @@ public class Controlador {
     }
     
     public void addLocacoes(int codigoLocacao, int codigoCliente, int codigoFuncionario,
-                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada){
+                    Calendar dataLocacao, Calendar dataDevolucao, boolean finalizada, int codigoVeiculo){
         
         Locacao l = new Locacao(codigoLocacao, codigoCliente, codigoFuncionario,
-            dataLocacao, dataDevolucao, finalizada);
+            dataLocacao, dataDevolucao, finalizada, codigoVeiculo);
         
         controle.addLocacao(l);
     }
@@ -141,5 +141,13 @@ public class Controlador {
     
     public String imprimirFuncionariosMes(){
         return controle.imprimirFuncionariosMes();
+    }
+    
+    public String imprimirVeiculosAtradados(){
+        return controle.imprimirVeiculosAtradados();
+    }
+    
+    public String imprimirVeiculoCliente(int codigoCliente){
+        return controle.imprimirVeiculoCliente(codigoCliente);
     }
 }

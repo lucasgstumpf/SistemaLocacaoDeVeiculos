@@ -6,6 +6,10 @@ package Interface;
 
 import Controlador.Controlador;
 import Interface.Utils.Utils;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +19,7 @@ import javax.swing.JOptionPane;
 public class UICadastroFuncionario extends javax.swing.JFrame {
 
     Controlador controller;
+
     /**
      * Creates new form UICadastroFuncionario
      */
@@ -55,13 +60,13 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         textPis = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        textDataAdmissao = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        textDataAdmissao = new javax.swing.JFormattedTextField();
 
         jLabel1.setText("    protected int codigoUsuario;     protected String nome;     protected String cpf;     protected String rg;     protected Calendar dataNascimento;     protected String endereco;     protected String cep;     protected String email; ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 300));
+        setSize(new java.awt.Dimension(410, 421));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Código: ");
@@ -115,12 +120,6 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Data de admissão");
 
-        textDataAdmissao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textDataAdmissaoActionPerformed(evt);
-            }
-        });
-
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Cadastrar!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +127,8 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        textDataAdmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,20 +152,21 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(textEndereco, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel13)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel9)
-                        .addComponent(textCep)
-                        .addComponent(textEmail)
-                        .addComponent(textSalario)
-                        .addComponent(textPis)
-                        .addComponent(textDataAdmissao, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                    .addComponent(jButton1))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(textCep, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(textEmail)
+                            .addComponent(textSalario)
+                            .addComponent(textPis))
+                        .addComponent(jButton1))
+                    .addComponent(textDataAdmissao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,12 +235,8 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
 
     private void textNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNascimentoActionPerformed
 
-           // TODO add your handling code here:
-    }//GEN-LAST:event_textNascimentoActionPerformed
-
-    private void textDataAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDataAdmissaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textDataAdmissaoActionPerformed
+    }//GEN-LAST:event_textNascimentoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -246,6 +244,19 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
         String nome = textNome.getText();
         String cpf = textCpf.getText();
         String rg = textRg.getText();
+        Calendar dataNascimento = Calendar.getInstance();
+        try {
+            String data = textNascimento.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            dataNascimento.setTime(sdf.parse(data));
+            System.out.println("ANO: " + dataNascimento.get(Calendar.YEAR));
+            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + dataNascimento.get(Calendar.DAY_OF_MONTH));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String nascimento = textNascimento.getText();
         String endereco = textEndereco.getText();
         String cep = textCep.getText();
@@ -253,24 +264,36 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
         String salario = textSalario.getText();
         String pis = textPis.getText();
         String admissao = textDataAdmissao.getText();
-        
-        String[] values = {codigo, nome, cpf, rg, nascimento, endereco, cep, 
+        Calendar DataAdmissao = Calendar.getInstance();
+        try {
+            String data = textDataAdmissao.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            DataAdmissao.setTime(sdf.parse(data));
+            System.out.println("ANO: " + DataAdmissao.get(Calendar.YEAR));
+            System.out.println("MES: " + DataAdmissao.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + DataAdmissao.get(Calendar.DAY_OF_MONTH));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        String[] values = {codigo, nome, cpf, rg, nascimento, endereco, cep,
             email, salario, pis, admissao};
-        if(Utils.hasNull(values)){
+        if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
         } else if (!Utils.isFloat(salario)) {
             JOptionPane.showMessageDialog(this, "Sálario precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textSalario.setText("");
-        } else if (!Utils.isInt(codigo)){
+        } else if (!Utils.isInt(codigo)) {
             JOptionPane.showMessageDialog(this, "Código do funcionário precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
         } else {
-            controller.addFuncionarios(Integer.parseInt(codigo), nome, cpf, rg, 
-                    nascimento, endereco, cep, email, Float.parseFloat(salario),
-                    pis, admissao);
+            controller.addFuncionarios(Integer.parseInt(codigo), nome, cpf, rg,
+                    dataNascimento, endereco, cep, email, Float.parseFloat(salario),
+                    pis, DataAdmissao);
             textCodigo.setText("");
             textNome.setText("");
             textCpf.setText("");
@@ -337,7 +360,7 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField textCep;
     private javax.swing.JTextField textCodigo;
     private javax.swing.JTextField textCpf;
-    private javax.swing.JTextField textDataAdmissao;
+    private javax.swing.JFormattedTextField textDataAdmissao;
     private javax.swing.JTextField textEmail;
     private javax.swing.JTextField textEndereco;
     private javax.swing.JFormattedTextField textNascimento;
