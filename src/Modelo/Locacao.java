@@ -114,8 +114,7 @@ public class Locacao {
                            "\nCódigo de funcionário: " + this.codigoFuncionario +
                            "\nCódigo do veicúlo: " + this.codigoVeiculo +
                            "\nData de locação: " +  this.dataLocacao.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + this.dataLocacao.get(Calendar.YEAR) +
-                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + mes2 + "/" + this.dataDevolucao.get(Calendar.YEAR) +
-                           "\nValor total: " + this.valorTotal;
+                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + mes2 + "/" + this.dataDevolucao.get(Calendar.YEAR);
         return relatorio; 
     }
 }

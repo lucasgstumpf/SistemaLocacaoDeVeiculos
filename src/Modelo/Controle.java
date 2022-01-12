@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -20,6 +21,7 @@ public final class Controle {
     private final static ArrayList<Cliente> clientes = new ArrayList();
     private final static ArrayList<Funcionario> funcionarios = new ArrayList();
     private final static ArrayList<Seguro> seguros = new ArrayList();
+    private DecimalFormat formatador = new DecimalFormat("0.00");
 
     public Controle() {
     }
@@ -235,6 +237,7 @@ public final class Controle {
         for (Locacao locacao : this.locacoes) {
             relatorio += "\n\n#" + contador;
             relatorio += locacao.imprimirLocacao();
+            relatorio += calcularValor(locacao);
             contador++;
         }
         if(relatorio.isEmpty()){
@@ -265,6 +268,7 @@ public final class Controle {
             if (!locacao.isFinalizada()) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
+                relatorio += calcularValor(locacao);
                 contador++;
             }
         }
@@ -281,6 +285,7 @@ public final class Controle {
             if (locacao.isFinalizada()) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
+                relatorio += calcularValor(locacao);
                 contador++;
             }
         }
@@ -298,6 +303,7 @@ public final class Controle {
             if (locacao.getDataDevolucao().before(hoje)) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
+                relatorio += calcularValor(locacao);
                 contador++;
             }
         }
@@ -311,9 +317,10 @@ public final class Controle {
         String relatorio = "";
         int contador = 1;
         for (Locacao locacao : this.locacoes) {
-            if (locacao.getDataDevolucao().get(Calendar.MONTH + 1) == mes) {
+            if (locacao.getDataLocacao().get(Calendar.MONTH) == mes - 1) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
+                relatorio += calcularValor(locacao);
                 contador++;
             }
         }
@@ -393,4 +400,26 @@ public final class Controle {
         }
         return relatorio;
     }
+    
+    public String calcularValor(Locacao locacao1){
+        long valor = 0;
+        String relatorio = "";
+        for(Veiculo veiculo : this.veiculos){
+            if(veiculo.getCodigoVeiculo() == locacao1.getCodigoVeiculo()){
+                valor = (long) (veiculo.getValorDiaria() * diferencaDias(locacao1.getDataLocacao(), locacao1.getDataDevolucao())); 
+            }
+        }
+        relatorio += "\nValor total: " + formatador.format(valor);
+        return relatorio ;
+    }
+    
+    public long diferencaDias(Calendar data1, Calendar data2){
+        long dia1 = data1.getTimeInMillis();
+        long dia2 = data2.getTimeInMillis();
+        
+        long diferenca = (dia2 - dia1)/86400000;
+
+        return diferenca;
+    }
 }
+
