@@ -150,4 +150,8 @@ public class Controlador {
     public String imprimirVeiculoCliente(int codigoCliente){
         return controle.imprimirVeiculoCliente(codigoCliente);
     }
+    
+    public boolean buscarCliente(int codigo){
+        return controle.buscarCliente(codigo);
+    }
 }

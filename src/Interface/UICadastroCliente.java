@@ -70,6 +70,12 @@ public class UICadastroCliente extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Código: ");
 
+        textCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                textCodigoFocusLost(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nome: ");
 
@@ -124,6 +130,11 @@ public class UICadastroCliente extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Cadastrar!");
+        jButton1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jButton1FocusGained(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -352,6 +363,18 @@ public class UICadastroCliente extends javax.swing.JFrame {
     private void textValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textValidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textValidadeActionPerformed
+
+    private void textCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textCodigoFocusLost
+        // TODO add your handling code here:
+        String codigo = textCodigo.getText();
+        if(controller.buscarCliente(Integer.parseInt(codigo))){
+            jButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_textCodigoFocusLost
+
+    private void jButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1FocusGained
 
     /**
      * @param args the command line arguments

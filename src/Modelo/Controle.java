@@ -89,6 +89,15 @@ public final class Controle {
         }
     }
 
+    public boolean buscarCliente(int codigo){
+        for(Cliente cliente : this.clientes){
+            if(cliente.getCodigoUsuario() == codigo){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public String imprimirTodosVeiculos() {
         System.out.println("Todos veículos cadastrados:");
         int contador = 1;
