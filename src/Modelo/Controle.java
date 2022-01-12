@@ -98,7 +98,9 @@ public final class Controle {
             relatorio += veiculo.imprimirVeiculos();
             contador++;
         }
-
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum veículo cadastrado";
+        }
         return relatorio;
     }
 
@@ -112,6 +114,9 @@ public final class Controle {
                 relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum veículo nacional";
         }
         return relatorio;
     }
@@ -127,6 +132,9 @@ public final class Controle {
                 contador++;
             }
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum veículo importado";
+        }
         return relatorio;
     }
 
@@ -140,6 +148,9 @@ public final class Controle {
                 relatorio += veiculo.imprimirVeiculos();
                 contador++;
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum veículo disponível";
         }
         return relatorio;
     }
@@ -155,6 +166,9 @@ public final class Controle {
                 contador++;
             }
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum veículo indisponível";
+        }
         return relatorio;
     }
 
@@ -167,6 +181,9 @@ public final class Controle {
             relatorio += funcionario.imprimirFuncionarios();
             contador++;
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Nenhum funcionário cadastrado";
+        }
         return relatorio;
     }
 
@@ -178,6 +195,9 @@ public final class Controle {
             relatorio += "\n\n#" + contador;
             relatorio += cliente.imprimirCliente();
             contador++;
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "nenhum cliente cadastrado";
         }
         return relatorio;
     }
@@ -193,6 +213,9 @@ public final class Controle {
                 contador++;
             }
         }
+        if(relatorio.isEmpty()){
+            relatorio = "O cliente não tem locação";
+        }
         return relatorio;
     }
 
@@ -205,6 +228,9 @@ public final class Controle {
             relatorio += locacao.imprimirLocacao();
             contador++;
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem locações cadastradas";
+        }
         return relatorio;
     }
 
@@ -216,6 +242,9 @@ public final class Controle {
             relatorio += "\n\n#" + contador;
             relatorio += seguro.imprimirSeguro();
             contador++;
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem seguros cadastrados";
         }
         return relatorio;
     }
@@ -230,6 +259,9 @@ public final class Controle {
                 contador++;
             }
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem locações finalizadas";
+        }
         return relatorio;
     }
 
@@ -242,6 +274,9 @@ public final class Controle {
                 relatorio += locacao.imprimirLocacao();
                 contador++;
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem locações finalizadas";
         }
         return relatorio;
     }
@@ -257,6 +292,9 @@ public final class Controle {
                 contador++;
             }
         }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem locações atrasadas";
+        }
         return relatorio;
     }
 
@@ -269,6 +307,9 @@ public final class Controle {
                 relatorio += locacao.imprimirLocacao();
                 contador++;
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Não teve locações esse mês";
         }
         return relatorio;
     }
@@ -287,6 +328,9 @@ public final class Controle {
                     }
                 }
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "Não tem veículos atrasados";
         }
         return relatorio;
     }
@@ -308,7 +352,13 @@ public final class Controle {
             }
             for (Funcionario funcionario : this.funcionarios) {
                 if (funcionario.getCodigoUsuario() == codigo) {
-                    relatorio += "\n#" + i + ": " + funcionario.imprimirFuncionarios();
+                    relatorio += "\n#" + i + ": ";
+                    if(funcionario.imprimirFuncionarios().isEmpty()){
+                        relatorio += "Não teve locações esse mês";
+                    }
+                    else {
+                        relatorio += funcionario.imprimirFuncionarios();
+                    }
                 }
             }
         }
@@ -328,6 +378,9 @@ public final class Controle {
                     }
                 }
             }
+        }
+        if(relatorio.isEmpty()){
+            relatorio = "O cliente não tem veículos locados";
         }
         return relatorio;
     }
