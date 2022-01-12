@@ -366,10 +366,6 @@ public class UICadastroCliente extends javax.swing.JFrame {
 
     private void textCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textCodigoFocusLost
         // TODO add your handling code here:
-        String codigo = textCodigo.getText();
-        if(controller.buscarCliente(Integer.parseInt(codigo))){
-            jButton1.setEnabled(false);
-        }
     }//GEN-LAST:event_textCodigoFocusLost
 
     private void jButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton1FocusGained
