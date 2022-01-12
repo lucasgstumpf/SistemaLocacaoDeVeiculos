@@ -6,7 +6,12 @@ package Interface;
 
 import Controlador.Controlador;
 import Interface.Utils.Utils;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -55,8 +60,8 @@ public class UICadastroCliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         boxCategoria = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        textValidade = new javax.swing.JTextField();
         checkboxOuro = new javax.swing.JCheckBox();
+        textValidade = new javax.swing.JFormattedTextField();
 
         jLabel1.setText("    protected int codigoUsuario;     protected String nome;     protected String cpf;     protected String rg;     protected Calendar dataNascimento;     protected String endereco;     protected String cep;     protected String email; ");
 
@@ -143,6 +148,13 @@ public class UICadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        textValidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        textValidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textValidadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,18 +180,18 @@ public class UICadastroCliente extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textEndereco, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textCep, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textNumero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(boxCategoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textValidade, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkboxOuro, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(textCep, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(textEmail)
+                            .addComponent(boxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)
+                            .addComponent(checkboxOuro)
+                            .addComponent(textNumero, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textValidade, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -267,12 +279,37 @@ public class UICadastroCliente extends javax.swing.JFrame {
         String cpf = textCpf.getText();
         String rg = textRg.getText();
         String nascimento = textNascimento.getText();
+        Calendar dataNascimento = Calendar.getInstance();
+        try {
+            String data = textNascimento.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            dataNascimento.setTime(sdf.parse(data));
+            System.out.println("ANO: " + dataNascimento.get(Calendar.YEAR));
+            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + dataNascimento.get(Calendar.DAY_OF_MONTH));
+            
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
         String endereco = textEndereco.getText();
         String cep = textCep.getText();
         String email = textEmail.getText();
         String categoria = (String) boxCategoria.getSelectedItem();
         String numero = textNumero.getText();
         String validade = textValidade.getText();
+        Calendar dataValidade = Calendar.getInstance();
+        try {
+            String data = textValidade.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            dataValidade.setTime(sdf.parse(data));
+            System.out.println("ANO: " + dataValidade.get(Calendar.YEAR));
+            System.out.println("MES: " + dataValidade.get(Calendar.MONTH + 1));
+            System.out.println("DIA: " + dataValidade.get(Calendar.DAY_OF_MONTH));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+     
         boolean ouro = checkboxOuro.isSelected();
         
         String[] values = {codigo, nome, cpf, rg, nascimento, endereco, cep, 
@@ -286,7 +323,7 @@ public class UICadastroCliente extends javax.swing.JFrame {
             textCodigo.setText("");
         } else {
             controller.addClientes(Integer.parseInt(codigo), nome, cpf, rg, 
-                    nascimento, endereco, cep, email, categoria, numero, validade,
+                    dataNascimento, endereco, cep, email, categoria, numero, dataValidade,
                     ouro);
             textCodigo.setText("");
             textNome.setText("");
@@ -299,7 +336,7 @@ public class UICadastroCliente extends javax.swing.JFrame {
             textNumero.setText("");
             textValidade.setText("");
         }
-        System.out.println(ouro);
+       
               
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -311,6 +348,10 @@ public class UICadastroCliente extends javax.swing.JFrame {
     private void checkboxOuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxOuroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkboxOuroActionPerformed
+
+    private void textValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textValidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textValidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,6 +414,6 @@ public class UICadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textNumero;
     private javax.swing.JTextField textRg;
-    private javax.swing.JTextField textValidade;
+    private javax.swing.JFormattedTextField textValidade;
     // End of variables declaration//GEN-END:variables
 }

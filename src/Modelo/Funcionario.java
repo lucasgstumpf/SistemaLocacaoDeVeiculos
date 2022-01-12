@@ -54,13 +54,13 @@ public class Funcionario extends Usuario{
                            "\nNome: " + this.nome +
                            "\nCPF: " + this.cpf +
                            "\nRG: " + this.rg + 
-                           "\nData de Nascimento: " + this.dataNascimento +
+                           "\nData de Nascimento: " + this.dataNascimento.get(Calendar.DAY_OF_MONTH) + "/" + this.dataNascimento.get(Calendar.MONTH + 1) + "/" + this.dataNascimento.get(Calendar.YEAR) + 
                            "\nEndereço: " + this.endereco +
                            "\nCEP: " + this.cep +
                            "\nEmail: " + this.email +
                            "\nSálario: " + this.salario +
                            "\nPIS: " + this.pis +
-                           "\nData de admissão: " + this.dataAdmissao;
+                           "\nData de admissão: " + this.dataAdmissao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataAdmissao.get(Calendar.MONTH + 1) + "/" + this.dataAdmissao.get(Calendar.YEAR);
         return relatorio;
     }
 }

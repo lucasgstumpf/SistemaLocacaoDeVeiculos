@@ -102,8 +102,8 @@ public class Locacao {
         String relatorio = "\nCódigo de locação: " + this.codigoLocacao +
                            "\nCódigo de cliente: " + this.codigoCliente +
                            "\nCódigo de funcionário: " + this.codigoFuncionario +
-                           "\nData de locação: " + this.dataLocacao +
-                           "\nData de devolução: " + this.dataDevolucao +
+                           "\nData de locação: " +  this.dataLocacao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataLocacao.get(Calendar.MONTH + 1) + "/" + this.dataLocacao.get(Calendar.YEAR) +
+                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataDevolucao.get(Calendar.MONTH + 1) + "/" + this.dataDevolucao.get(Calendar.YEAR) +
                            "\nValor total: " + this.valorTotal;
         return relatorio; 
     }
