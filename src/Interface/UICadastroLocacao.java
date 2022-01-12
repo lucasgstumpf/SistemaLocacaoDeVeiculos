@@ -51,6 +51,8 @@ public class UICadastroLocacao extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         textDataDevolucao = new javax.swing.JFormattedTextField();
         textDataLocacao = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        textCodigoVeiculo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -97,6 +99,9 @@ public class UICadastroLocacao extends javax.swing.JFrame {
 
         textDataLocacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Código veiculo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,14 +120,16 @@ public class UICadastroLocacao extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textDataLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textSegurosContratados, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textSegurosContratados)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jButton1)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addGap(17, 17, 17)))
-                    .addComponent(checkBoxFinalizada))
+                    .addComponent(checkBoxFinalizada)
+                    .addComponent(jLabel6)
+                    .addComponent(textCodigoVeiculo))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -137,15 +144,19 @@ public class UICadastroLocacao extends javax.swing.JFrame {
                     .addComponent(textCodigoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textSegurosContratados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkBoxFinalizada))
+                    .addComponent(textCodigoVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkBoxFinalizada))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -156,7 +167,7 @@ public class UICadastroLocacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(textDataLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,6 +184,7 @@ public class UICadastroLocacao extends javax.swing.JFrame {
         String codigoCliente = textCodigoCliente.getText();
         String codigoFuncionario = textCodigoFuncionario.getText();
         String dataDevolucao = textDataDevolucao.getText();
+        String codigoVeiculo = textCodigoVeiculo.getText();
         Calendar dataDataDevolucao = Calendar.getInstance();
         try {
             String data = textDataDevolucao.getText();
@@ -206,18 +218,18 @@ public class UICadastroLocacao extends javax.swing.JFrame {
         boolean finalizada = checkBoxFinalizada.isSelected();
 
         String[] values = {codigoLocacao, codigoCliente, codigoFuncionario,
-            dataDevolucao, dataLocacao, segurosContratados};
+            dataDevolucao, dataLocacao, segurosContratados, codigoVeiculo};
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
-        } else if (!Utils.isInt(codigoLocacao) && !Utils.isInt(codigoCliente) && !Utils.isInt(codigoFuncionario)) {
+        } else if (!Utils.isInt(codigoLocacao) && !Utils.isInt(codigoCliente) && !Utils.isInt(codigoFuncionario) && !Utils.isInt(codigoVeiculo)) {
             JOptionPane.showMessageDialog(this, "Código da locação, cliente e funcionário precisa ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigoLocacao.setText("");
             textCodigoFuncionario.setText("");
             textCodigoCliente.setText("");
         } else {
-            controller.addLocacoes(Integer.parseInt(codigoLocacao), Integer.parseInt(codigoCliente), Integer.parseInt(codigoFuncionario), dataDataLocacao, dataDataDevolucao, finalizada);
+            controller.addLocacoes(Integer.parseInt(codigoLocacao), Integer.parseInt(codigoCliente), Integer.parseInt(codigoFuncionario), dataDataLocacao, dataDataDevolucao, finalizada,Integer.parseInt(codigoVeiculo));
             textCodigoLocacao.setText("");
             textCodigoFuncionario.setText("");
             textCodigoCliente.setText("");
@@ -277,10 +289,12 @@ public class UICadastroLocacao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField textCodigoCliente;
     private javax.swing.JTextField textCodigoFuncionario;
     private javax.swing.JTextField textCodigoLocacao;
+    private javax.swing.JTextField textCodigoVeiculo;
     private javax.swing.JFormattedTextField textDataDevolucao;
     private javax.swing.JFormattedTextField textDataLocacao;
     private javax.swing.JTextField textSegurosContratados;
