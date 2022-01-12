@@ -107,12 +107,14 @@ public class Locacao {
     }
     
     public String imprimirLocacao(){
+        int mes = this.dataLocacao.get(Calendar.MONTH) + 1;
+        int mes2 = this.dataDevolucao.get(Calendar.MONTH) + 1;
         String relatorio = "\nCódigo de locação: " + this.codigoLocacao +
                            "\nCódigo de cliente: " + this.codigoCliente +
                            "\nCódigo de funcionário: " + this.codigoFuncionario +
                            "\nCódigo do veicúlo: " + this.codigoVeiculo +
-                           "\nData de locação: " +  this.dataLocacao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataLocacao.get(Calendar.MONTH + 1) + "/" + this.dataLocacao.get(Calendar.YEAR) +
-                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + this.dataDevolucao.get(Calendar.MONTH + 1) + "/" + this.dataDevolucao.get(Calendar.YEAR) +
+                           "\nData de locação: " +  this.dataLocacao.get(Calendar.DAY_OF_MONTH) + "/" + mes + "/" + this.dataLocacao.get(Calendar.YEAR) +
+                           "\nData de devolução: " + this.dataDevolucao.get(Calendar.DAY_OF_MONTH) + "/" + mes2 + "/" + this.dataDevolucao.get(Calendar.YEAR) +
                            "\nValor total: " + this.valorTotal;
         return relatorio; 
     }

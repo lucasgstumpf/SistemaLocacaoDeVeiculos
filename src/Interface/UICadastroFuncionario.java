@@ -251,7 +251,7 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
 
             dataNascimento.setTime(sdf.parse(data));
             System.out.println("ANO: " + dataNascimento.get(Calendar.YEAR));
-            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH));
             System.out.println("DIA: " + dataNascimento.get(Calendar.DAY_OF_MONTH));
         } catch (ParseException e) {
             e.printStackTrace();
@@ -270,7 +270,7 @@ public class UICadastroFuncionario extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             DataAdmissao.setTime(sdf.parse(data));
             System.out.println("ANO: " + DataAdmissao.get(Calendar.YEAR));
-            System.out.println("MES: " + DataAdmissao.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + DataAdmissao.get(Calendar.MONTH));
             System.out.println("DIA: " + DataAdmissao.get(Calendar.DAY_OF_MONTH));
 
         } catch (ParseException e) {

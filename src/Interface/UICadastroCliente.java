@@ -296,7 +296,7 @@ public class UICadastroCliente extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             dataNascimento.setTime(sdf.parse(data));
             System.out.println("ANO: " + dataNascimento.get(Calendar.YEAR));
-            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + dataNascimento.get(Calendar.MONTH));
             System.out.println("DIA: " + dataNascimento.get(Calendar.DAY_OF_MONTH));
             
         } catch (ParseException e) {
@@ -315,7 +315,7 @@ public class UICadastroCliente extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             dataValidade.setTime(sdf.parse(data));
             System.out.println("ANO: " + dataValidade.get(Calendar.YEAR));
-            System.out.println("MES: " + dataValidade.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + dataValidade.get(Calendar.MONTH));
             System.out.println("DIA: " + dataValidade.get(Calendar.DAY_OF_MONTH));
         } catch (ParseException e) {
             e.printStackTrace();

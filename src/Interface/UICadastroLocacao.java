@@ -191,7 +191,7 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
             dataDataDevolucao.setTime(sdf.parse(data));
             System.out.println("ANO: " + dataDataDevolucao.get(Calendar.YEAR));
-            System.out.println("MES: " + dataDataDevolucao.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + dataDataDevolucao.get(Calendar.MONTH));
             System.out.println("DIA: " + dataDataDevolucao.get(Calendar.DAY_OF_MONTH));
 
         } catch (ParseException e) {
@@ -207,7 +207,7 @@ public class UICadastroLocacao extends javax.swing.JFrame {
             dataDataLocacao.setTime(sdf.parse(data));
             System.out.println(data);
             System.out.println("ANO: " + dataDataLocacao.get(Calendar.YEAR));
-            System.out.println("MES: " + dataDataLocacao.get(Calendar.MONTH + 1));
+            System.out.println("MES: " + dataDataLocacao.get(Calendar.MONTH));
             System.out.println("DIA: " + dataDataLocacao.get(Calendar.DAY_OF_MONTH));
 
         } catch (ParseException e) {
