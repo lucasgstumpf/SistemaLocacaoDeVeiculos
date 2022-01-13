@@ -35,7 +35,6 @@ public class UICadastroNacionais extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textFabricacao = new javax.swing.JLabel();
@@ -46,8 +45,6 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         textModelo = new javax.swing.JTextField();
         textMontadora = new javax.swing.JTextField();
-        AnoFabricacao = new javax.swing.JTextField();
-        AnoModelo = new javax.swing.JTextField();
         textPlaca = new javax.swing.JTextField();
         textFipe = new javax.swing.JTextField();
         textDiaria = new javax.swing.JTextField();
@@ -56,17 +53,14 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         textEstadual = new javax.swing.JTextField();
         checkBoxAlugado = new javax.swing.JCheckBox();
+        anoFabricacao = new javax.swing.JFormattedTextField();
+        textCodigo = new javax.swing.JFormattedTextField();
+        AnoModelo = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Código:");
-
-        textCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textCodigoActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Modelo:");
@@ -103,12 +97,6 @@ public class UICadastroNacionais extends javax.swing.JFrame {
             }
         });
 
-        AnoModelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnoModeloActionPerformed(evt);
-            }
-        });
-
         CadastroButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CadastroButton.setText("Cadastrar");
         CadastroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +114,12 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         checkBoxAlugado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         checkBoxAlugado.setText("Alugado");
 
+        anoFabricacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        textCodigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        AnoModelo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,19 +133,18 @@ public class UICadastroNacionais extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(159, 159, 159))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(textFabricacao)
                             .addComponent(textAnoModelo)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(AnoModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                .addComponent(AnoFabricacao, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textMontadora, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textModelo, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(checkBoxAlugado, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                            .addComponent(textMontadora, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(textModelo)
+                            .addComponent(checkBoxAlugado, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(anoFabricacao)
+                            .addComponent(textCodigo)
+                            .addComponent(AnoModelo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,8 +169,8 @@ public class UICadastroNacionais extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -200,35 +193,27 @@ public class UICadastroNacionais extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AnoFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textDiaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(textDiaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(anoFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textAnoModelo)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CadastroButton))
-                    .addComponent(checkBoxAlugado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(checkBoxAlugado))
                 .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void textCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textCodigoActionPerformed
-
-    private void AnoModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnoModeloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnoModeloActionPerformed
 
     private void boxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCategoriaActionPerformed
         // TODO add your handling code here:
@@ -243,7 +228,7 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         String codigo = textCodigo.getText();
         String modelo = textModelo.getText();
         String montadora = textMontadora.getText();
-        String anoFabricacao = AnoFabricacao.getText();
+        String AnoFabricacao = anoFabricacao.getText();
         String anoModelo = AnoModelo.getText();
         String placa = textPlaca.getText();
         String categoria = (String) boxCategoria.getSelectedItem();
@@ -252,17 +237,17 @@ public class UICadastroNacionais extends javax.swing.JFrame {
         String estadual = textEstadual.getText();
         boolean alugado = checkBoxAlugado.isSelected();
 
-        String[] values = {codigo, modelo, montadora, anoFabricacao, anoModelo,
+        String[] values = {codigo, modelo, montadora, AnoFabricacao, anoModelo,
             placa, categoria, fipe, diaria, estadual};
 
         if (Utils.hasNull(values)) {
             JOptionPane.showMessageDialog(this, "Todos os campos precisam ser preenchidos!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
-        } else if (!Utils.isInt(codigo) && !Utils.isInt(anoFabricacao) && !Utils.isInt(anoModelo)) {
+        } else if (!Utils.isInt(codigo) && !Utils.isInt(AnoFabricacao) && !Utils.isInt(anoModelo)) {
             JOptionPane.showMessageDialog(this, "Código, ano de fabricação e ano de modelo precisam ser um valor numérico!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             textCodigo.setText("");
-            AnoFabricacao.setText("");
+            anoFabricacao.setText("");
             AnoModelo.setText("");
         } else if (!Utils.isFloat(fipe) && !Utils.isFloat(diaria) && !Utils.isFloat(estadual)) {
             JOptionPane.showMessageDialog(this, "Valor Fipe, diária e taxa estadual precisam ser um valor numérico!",
@@ -272,14 +257,14 @@ public class UICadastroNacionais extends javax.swing.JFrame {
             textEstadual.setText("");
         } else {
             controller.addVeiculosNacionais(Integer.parseInt(codigo), modelo,
-                    montadora, Integer.parseInt(anoFabricacao),
+                    montadora, Integer.parseInt(AnoFabricacao),
                     Integer.parseInt(anoModelo), placa, categoria,
                     Float.parseFloat(fipe), Float.parseFloat(diaria),
                     alugado, Float.parseFloat(estadual));
             textCodigo.setText("");
             textModelo.setText("");
             textMontadora.setText("");
-            AnoFabricacao.setText("");
+            anoFabricacao.setText("");
             AnoModelo.setText("");
             textPlaca.setText("");
             textFipe.setText("");
@@ -327,9 +312,9 @@ public class UICadastroNacionais extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AnoFabricacao;
-    private javax.swing.JTextField AnoModelo;
+    private javax.swing.JFormattedTextField AnoModelo;
     private javax.swing.JButton CadastroButton;
+    private javax.swing.JFormattedTextField anoFabricacao;
     private javax.swing.JComboBox<String> boxCategoria;
     private javax.swing.JCheckBox checkBoxAlugado;
     private javax.swing.JLabel jLabel1;
@@ -341,7 +326,7 @@ public class UICadastroNacionais extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel textAnoModelo;
-    private javax.swing.JTextField textCodigo;
+    private javax.swing.JFormattedTextField textCodigo;
     private javax.swing.JTextField textDiaria;
     private javax.swing.JTextField textEstadual;
     private javax.swing.JLabel textFabricacao;

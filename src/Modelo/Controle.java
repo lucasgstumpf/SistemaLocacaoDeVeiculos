@@ -265,7 +265,7 @@ public final class Controle {
         int contador = 1;
         String relatorio = "";
         for (Locacao locacao : this.locacoes) {
-            if (!locacao.isFinalizada()) {
+            if (locacao.isFinalizada()) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
                 relatorio += calcularValor(locacao);
@@ -282,7 +282,7 @@ public final class Controle {
         int contador = 1;
         String relatorio = "";
         for (Locacao locacao : this.locacoes) {
-            if (locacao.isFinalizada()) {
+            if (!locacao.isFinalizada()) {
                 relatorio += "\n\n#" + contador;
                 relatorio += locacao.imprimirLocacao();
                 relatorio += calcularValor(locacao);
@@ -406,7 +406,7 @@ public final class Controle {
         String relatorio = "";
         for(Veiculo veiculo : this.veiculos){
             if(veiculo.getCodigoVeiculo() == locacao1.getCodigoVeiculo()){
-                valor = (long) (veiculo.getValorDiaria() * diferencaDias(locacao1.getDataLocacao(), locacao1.getDataDevolucao())); 
+                valor = (long) (veiculo.getValorDiaria() * (1 + diferencaDias(locacao1.getDataLocacao(), locacao1.getDataDevolucao()))); 
             }
         }
         relatorio += "\nValor total: " + formatador.format(valor);
